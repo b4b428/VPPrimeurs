@@ -1,0 +1,24 @@
+# ------------------------------------------------------------------
+# VP Primeur – Facturation : protection par mot de passe (serveurs Apache)
+#
+# 1. Créez le fichier de mots de passe depuis le panneau de votre hébergeur
+#    (rubrique « Protection de répertoire » / « Répertoires protégés »),
+#    ou avec la commande :  htpasswd -c /chemin/prive/.htpasswd margot
+# 2. Remplacez la ligne AuthUserFile par le chemin ABSOLU de ce fichier,
+#    placé de préférence HORS du dossier public (www / public_html).
+# 3. Retirez le « # » devant les 4 lignes ci-dessous.
+# ------------------------------------------------------------------
+#AuthType Basic
+#AuthName "VP Primeur - Espace facturation"
+#AuthUserFile /home/VOTRE-COMPTE/.htpasswd
+#Require valid-user
+
+# Ne pas référencer l'outil dans les moteurs de recherche
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "same-origin"
+</IfModule>
+
+# Interdire l'affichage du contenu des dossiers
+Options -Indexes

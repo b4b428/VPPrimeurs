@@ -3,48 +3,149 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>VP Primeur · Facturation</title>
-<meta name="robots" content="noindex, nofollow">
+<title>VP Primeur – Margot &amp; Damien · Fruits et légumes de saison</title>
+<meta name="description" content="VP Primeur, votre primeur : fruits et légumes de saison choisis avec soin par Margot et Damien. Horaires, adresse et offre pour les professionnels.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="VP Primeur – Margot &amp; Damien">
+<meta property="og:description" content="Des fruits et légumes de saison, choisis avec soin.">
+<meta property="og:image" content="img/logo-vp-primeur.png">
 <link rel="icon" type="image/png" href="img/logo-vp-primeur.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Kaushan+Script&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-<div class="app">
-  <aside class="side">
-    <a class="brand" href="#/factures" aria-label="VP Primeur, accueil"><img id="brand-logo" alt="VP Primeur – Margot &amp; Damien"><span>Facturation</span></a>
-    <nav class="nav" id="nav">
-      <a href="#/factures" data-v="factures">Factures <small id="n-factures"></small></a>
-      <a href="#/clients" data-v="clients">Clients <small id="n-clients"></small></a>
-      <a href="#/produits" data-v="produits">Produits <small id="n-produits"></small></a>
-      <a href="#/fournisseurs" data-v="fournisseurs">Fournisseurs <small id="n-fournisseurs"></small></a>
-      <a href="#/tarifs" data-v="tarifs">Liste des prix</a>
-      <div class="sep"></div>
-      <a href="#/entreprise" data-v="entreprise">Mon entreprise</a>
+
+<header class="top">
+  <div class="top-in">
+    <a href="#accueil" class="top-logo" aria-label="VP Primeur, retour en haut"><img src="img/logo-vp-primeur.png" alt="VP Primeur – Margot &amp; Damien" width="620" height="416"></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu" class="menu" aria-label="Navigation principale">
+      <a href="#saisons">De saison</a>
+      <a href="#pros">Professionnels</a>
+      <a href="#nous">Qui sommes-nous</a>
+      <a href="#trouver">Nous trouver</a>
+      <a class="pill-btn" data-tel href="#trouver">Nous appeler</a>
     </nav>
-    <div class="store" id="store-info"></div>
-  </aside>
-  <main id="main"><p class="muted">Chargement…</p></main>
-</div>
+  </div>
+</header>
 
-<dialog id="dlg">
-  <form id="dlg-form" novalidate>
-    <h2 id="dlg-title"></h2>
-    <div class="fields" id="dlg-fields"></div>
-    <div class="dlg-actions">
-      <button type="button" class="btn danger" id="dlg-del">Supprimer</button>
-      <span class="sp"></span>
-      <button type="button" class="btn" id="dlg-cancel">Annuler</button>
-      <button type="submit" class="btn primary">Enregistrer</button>
+<main>
+  <section id="accueil" class="hero">
+    <div class="hero-text">
+      <p class="script hero-kicker">Votre primeur</p>
+      <h1>Des fruits et légumes de saison, choisis avec soin.</h1>
+      <p class="hero-lead" data-info="histoire"></p>
+      <div class="actions">
+        <a class="pill-btn" href="#trouver">Horaires et adresse</a>
+        <a class="ghost-btn" href="#pros">Vous êtes un professionnel ?</a>
+      </div>
     </div>
-  </form>
-</dialog>
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-<div id="print-root"></div>
+    <div class="hero-logo"><img src="img/logo-vp-primeur.png" alt="" width="620" height="416"></div>
+  </section>
 
-<script src="js/vendor/html2pdf.bundle.min.js"></script>
-<script src="js/app.js"></script>
+  <div class="band" id="band" hidden></div>
+
+  <section id="saisons" class="wrap section">
+    <div class="sec-head">
+      <div>
+        <h2 class="script">Au fil des saisons</h2>
+        <p class="muted">Le calendrier des fruits et légumes de saison en France. Choisissez une saison pour voir ce qui est au meilleur de sa forme.</p>
+      </div>
+      <div class="tabs" role="group" aria-label="Choisir une saison" id="tabs"></div>
+    </div>
+    <div class="season-grid">
+      <div class="card"><h3>Fruits</h3><ul class="chips fruit" id="fruits"></ul></div>
+      <div class="card"><h3>Légumes</h3><ul class="chips legume" id="legumes"></ul></div>
+    </div>
+    <p class="muted small">Les arrivages varient selon les récoltes : demandez-nous ce qui est arrivé cette semaine.</p>
+  </section>
+
+  <section id="pros" class="dark section">
+    <div class="wrap pros">
+      <div class="pros-text">
+        <h2 class="script orange">Pour les professionnels</h2>
+        <p class="lead-dark">Restaurants, cantines, épiceries, traiteurs : parlons de vos besoins et organisons vos commandes régulières.</p>
+        <ul class="checks">
+          <li><b>Une liste de prix HT dédiée</b><span>Mise à jour avec les arrivages, avec l’origine de chaque produit.</span></li>
+          <li><b>Une facture claire à chaque commande</b><span>Envoyée en PDF par e-mail, avec le détail des quantités et de la TVA.</span></li>
+          <li><b>Des interlocuteurs qui connaissent vos besoins</b><span>Margot et Damien suivent eux-mêmes vos commandes.</span></li>
+        </ul>
+      </div>
+      <div class="form-card">
+        <form id="pro-form" novalidate>
+          <h3>Demander la liste des prix</h3>
+          <div class="form-grid">
+            <div class="f"><label for="pro-nom">Établissement</label><input id="pro-nom" name="etablissement" required autocomplete="organization"></div>
+            <div class="f"><label for="pro-contact">Votre nom</label><input id="pro-contact" name="nom" required autocomplete="name"></div>
+            <div class="f"><label for="pro-mail">E-mail</label><input id="pro-mail" name="email" type="email" autocomplete="email"></div>
+            <div class="f"><label for="pro-tel">Téléphone</label><input id="pro-tel" name="telephone" type="tel" autocomplete="tel"></div>
+          </div>
+          <div class="f"><label for="pro-msg">Vos besoins (produits, volumes, fréquence)</label><textarea id="pro-msg" name="message" rows="4"></textarea></div>
+          <p class="form-err" id="form-err" role="alert"></p>
+          <button class="pill-btn" type="submit">Préparer ma demande</button>
+          <p class="form-note">Votre messagerie s’ouvre avec la demande déjà rédigée : il ne reste qu’à l’envoyer.</p>
+        </form>
+        <div id="form-done" hidden>
+          <p class="script orange done-title">Merci !</p>
+          <p class="lead-dark">Votre message est prêt dans votre messagerie. Une fois envoyé, Margot ou Damien vous recontacte rapidement.</p>
+          <button class="ghost-btn" type="button" id="form-again">Faire une autre demande</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nous" class="wrap section nous">
+    <div class="nous-media" id="nous-media"><img src="img/logo-vp-primeur.png" alt="" class="nous-logo"></div>
+    <div class="nous-text">
+      <h2 class="script">Margot &amp; Damien</h2>
+      <p class="big" data-info="histoire"></p>
+      <p class="muted" data-info="producteurs"></p>
+    </div>
+  </section>
+
+  <section id="trouver" class="light section">
+    <div class="wrap trouver">
+      <div class="trouver-text">
+        <h2 class="script">Nous trouver</h2>
+        <address>
+          <b>VP Primeur</b>
+          <span data-info="adresse"></span>
+          <span data-info="villeComplete"></span>
+        </address>
+        <div class="contact-lines">
+          <a data-tel class="tel-big" hidden></a>
+          <a data-mail hidden></a>
+        </div>
+        <table class="hours" id="hours" hidden>
+          <caption>Horaires</caption>
+          <tbody></tbody>
+        </table>
+        <p class="muted" id="no-info" hidden>Les horaires et l’adresse arrivent très bientôt.</p>
+      </div>
+      <div class="map" id="map"><img src="img/logo-vp-primeur.png" alt="" class="nous-logo"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <img src="img/logo-vp-primeur.png" alt="VP Primeur – Margot &amp; Damien" width="620" height="416">
+    <nav aria-label="Liens du pied de page">
+      <a href="#saisons">De saison</a>
+      <a href="#pros">Professionnels</a>
+      <a href="#trouver">Nous trouver</a>
+    </nav>
+    <span>© <span id="year"></span> VP Primeur</span>
+  </div>
+  <details class="legal wrap">
+    <summary>Mentions légales</summary>
+    <div id="legal"></div>
+  </details>
+</footer>
+
+<script src="js/infos.js"></script>
+<script src="js/site.js"></script>
 </body>
 </html>
