@@ -1,0 +1,55 @@
+VP PRIMEUR – MODULE DE FACTURATION
+==================================
+
+Contenu du dossier
+------------------
+index.html           la page de l'outil
+css/style.css        la mise en forme
+js/app.js            le fonctionnement (factures, clients, produits, PDF…)
+js/vendor/           la bibliothèque qui fabrique les PDF (html2pdf.js, licence MIT)
+img/                 le logo VP Primeur
+.htaccess            protection par mot de passe (à activer, voir ci-dessous)
+robots.txt           empêche Google d'indexer l'outil
+
+Mise en ligne
+-------------
+1. Chez votre hébergeur, créez un sous-dossier dédié, par exemple :
+      public_html/facturation/
+   L'outil sera alors accessible à l'adresse :
+      https://www.votre-site.fr/facturation/
+2. Envoyez-y TOUT le contenu de ce dossier (par FTP avec FileZilla,
+   ou via le gestionnaire de fichiers de l'hébergeur), en gardant
+   la même organisation des sous-dossiers.
+   Attention : le fichier .htaccess commence par un point, il peut être
+   masqué ; activez l'affichage des fichiers cachés.
+3. Protégez le dossier par un mot de passe : soit avec l'option
+   « Protéger un répertoire » du panneau de l'hébergeur (le plus simple),
+   soit en suivant les explications en tête du fichier .htaccess.
+4. Utilisez l'adresse en https:// .
+
+Où sont enregistrées les données ?
+----------------------------------
+Les factures, clients, produits et fournisseurs sont enregistrés DANS LE
+NAVIGATEUR de l'ordinateur qui utilise l'outil. Rien n'est envoyé sur le
+serveur : c'est simple et confidentiel, mais cela implique :
+
+ - Toujours utiliser le même ordinateur et le même navigateur
+   (par exemple Chrome sur l'ordinateur du magasin).
+ - Ne pas effacer les « données de navigation / cookies » de ce site.
+ - FAIRE DES SAUVEGARDES : « Mon entreprise » > « Exporter mes données »
+   crée un fichier .json. Rangez-le sur une clé USB ou un espace cloud.
+   L'outil vous le rappelle toutes les deux semaines.
+ - Pour changer d'ordinateur : exportez sur l'ancien, puis
+   « Restaurer une sauvegarde » sur le nouveau.
+
+Envoyer une facture
+-------------------
+Ouvrez la facture > « Aperçu et PDF » > « Télécharger le PDF »,
+puis « Envoyer par e-mail » : votre messagerie s'ouvre avec le message
+prêt, il reste à joindre le PDF.
+« Imprimer » permet aussi de choisir « Enregistrer au format PDF ».
+
+Rappel légal
+------------
+Les factures doivent être conservées 10 ans (Code de commerce).
+Gardez les PDF envoyés et vos sauvegardes.

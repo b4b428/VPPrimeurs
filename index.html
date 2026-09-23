@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VP Primeur · Facturation</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="img/logo-vp-primeur.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Kaushan+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <a class="brand" href="#/factures" aria-label="VP Primeur, accueil"><img id="brand-logo" alt="VP Primeur – Margot &amp; Damien"><span>Facturation</span></a>
+    <nav class="nav" id="nav">
+      <a href="#/factures" data-v="factures">Factures <small id="n-factures"></small></a>
+      <a href="#/clients" data-v="clients">Clients <small id="n-clients"></small></a>
+      <a href="#/produits" data-v="produits">Produits <small id="n-produits"></small></a>
+      <a href="#/fournisseurs" data-v="fournisseurs">Fournisseurs <small id="n-fournisseurs"></small></a>
+      <a href="#/tarifs" data-v="tarifs">Liste des prix</a>
+      <div class="sep"></div>
+      <a href="#/entreprise" data-v="entreprise">Mon entreprise</a>
+    </nav>
+    <div class="store" id="store-info"></div>
+  </aside>
+  <main id="main"><p class="muted">Chargement…</p></main>
+</div>
+
+<dialog id="dlg">
+  <form id="dlg-form" novalidate>
+    <h2 id="dlg-title"></h2>
+    <div class="fields" id="dlg-fields"></div>
+    <div class="dlg-actions">
+      <button type="button" class="btn danger" id="dlg-del">Supprimer</button>
+      <span class="sp"></span>
+      <button type="button" class="btn" id="dlg-cancel">Annuler</button>
+      <button type="submit" class="btn primary">Enregistrer</button>
+    </div>
+  </form>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div id="print-root"></div>
+
+<script src="js/vendor/html2pdf.bundle.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
