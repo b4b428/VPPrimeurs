@@ -34,7 +34,7 @@ const INFOS = {
   // --- Présentation ------------------------------------------------------
   histoire: 'Margot et Damien vous accueillent au magasin pour vous conseiller, vous faire goûter et vous aider à composer vos paniers de la semaine.',
   producteurs: '',            // ex. 'Nos pommes viennent du verger de … à … km.'
-  photo: '',                  // ex. 'img/margot-damien.jpg' (déposez la photo dans le dossier img)
+  photo: '',                  // ex. 'margot-damien.jpg' (envoyez la photo sur GitHub avec les autres fichiers)
 
   // --- Mentions légales (obligatoires pour un site professionnel) -------
   raisonSociale: 'VP Primeur',

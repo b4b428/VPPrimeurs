@@ -14,7 +14,7 @@ const addDays = (iso, n) => { if (!iso) return ''; const d = new Date(iso + 'T12
 const fmtDate = iso => iso ? new Date(iso + 'T12:00:00').toLocaleDateString('fr-FR') : '';
 const clone = o => JSON.parse(JSON.stringify(o));
 
-const LOGO = 'img/logo-vp-primeur.png';
+const LOGO = 'logo-vp-primeur.png';
 const BRAND_COLOR = '#D24E17';
 const TVAS = [[5.5,'5,5 %'],[10,'10 %'],[20,'20 %'],[2.1,'2,1 %'],[0,'0 %']];
 const TVA_DEF = () => S.company.tvaDefaut ?? 5.5;
